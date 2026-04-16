@@ -1,7 +1,6 @@
 package com.ecommerce.project.controller;
 
 import com.ecommerce.project.payload.CartResponseDto;
-import com.ecommerce.project.repository.CartRepository;
 import com.ecommerce.project.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
