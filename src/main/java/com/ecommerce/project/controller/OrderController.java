@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class OrderController {
 
+    // Rebase test branch onto order api branch
+
     @Autowired
     private OrderService orderService;
 
@@ -20,9 +22,10 @@ public class OrderController {
     private AuthUtil authUtil;
 
     @PostMapping("/order/users/payments/{payMethod}")
-    private ResponseEntity<OrderDto> placeOrder(@RequestBody OrderRequestDto orderRequest, @PathVariable String payMethod){
+    private ResponseEntity<OrderDto> placeOrder(@RequestBody OrderRequestDto orderRequest,
+            @PathVariable String payMethod) {
         String email = authUtil.loggedInEmail();
-        OrderDto orderResp = orderService.placeOrder(email,orderRequest,payMethod);
+        OrderDto orderResp = orderService.placeOrder(email, orderRequest, payMethod);
         return new ResponseEntity<>(orderResp, HttpStatus.CREATED);
     }
 }
